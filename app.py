@@ -30,7 +30,7 @@ def create_app(db_url=None) -> Flask:
     app.config["JWT_SECRET_KEY"] = "88663044192488555606631647684698923483721037134868738283367936574020284576353"
 
     db.init_app(app)
-    migrate = Migrate(app, db)
+    migrate = Migrate(app, db, compare_type=True)
     api = Api(app)
 
     jwt = JWTManager(app)
